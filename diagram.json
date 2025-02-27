@@ -1,0 +1,147 @@
+{
+  "version": 1,
+  "author": "Михаил Дорошенко",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "wokwi-breadboard-half", "id": "bb1", "top": -41.4, "left": -26, "attrs": {} },
+    { "type": "wokwi-breadboard-half", "id": "bb2", "top": -41.4, "left": -410, "attrs": {} },
+    {
+      "type": "wokwi-pi-pico",
+      "id": "pico",
+      "top": 192.7,
+      "left": 36.45,
+      "rotate": 90,
+      "attrs": { "env": "micropython-20231227-v1.22.0" }
+    },
+    {
+      "type": "wokwi-stepper-motor",
+      "id": "stepper1",
+      "top": -48.7,
+      "left": -30.52,
+      "attrs": { "size": "11", "arrow": "red" }
+    },
+    {
+      "type": "wokwi-pushbutton-6mm",
+      "id": "btn1",
+      "top": 49,
+      "left": 80.8,
+      "rotate": 90,
+      "attrs": { "color": "red" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r1",
+      "top": 120,
+      "left": 76.25,
+      "rotate": 90,
+      "attrs": { "value": "10000" }
+    },
+    { "type": "wokwi-led", "id": "led1", "top": 34.8, "left": 51.8, "attrs": { "color": "red" } },
+    {
+      "type": "wokwi-resistor",
+      "id": "r2",
+      "top": 120,
+      "left": 37.85,
+      "rotate": 90,
+      "attrs": { "value": "220" }
+    },
+    {
+      "type": "wokwi-stepper-motor",
+      "id": "stepper2",
+      "top": -48.7,
+      "left": -414.52,
+      "attrs": { "size": "11", "arrow": "blue" }
+    },
+    {
+      "type": "wokwi-pushbutton-6mm",
+      "id": "btn2",
+      "top": 49,
+      "left": -303.2,
+      "rotate": 90,
+      "attrs": { "color": "blue" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r3",
+      "top": 120,
+      "left": -307.75,
+      "rotate": 90,
+      "attrs": { "value": "10000" }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "led2",
+      "top": 34.8,
+      "left": -332.2,
+      "attrs": { "color": "blue" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r4",
+      "top": 120,
+      "left": -346.15,
+      "rotate": 90,
+      "attrs": { "value": "220" }
+    },
+    {
+      "type": "board-ssd1306",
+      "id": "oled1",
+      "top": 425.54,
+      "left": 221.03,
+      "attrs": { "i2cAddress": "0x3c" }
+    }
+  ],
+  "connections": [
+    [ "pico:GP10", "bb1:5b.j", "gold", [ "v0" ] ],
+    [ "pico:GP11", "bb1:4b.j", "orange", [ "v0" ] ],
+    [ "pico:GP12", "bb1:3b.j", "red", [ "v0" ] ],
+    [ "pico:GP13", "bb1:2b.j", "#8f4814", [ "v-115.2" ] ],
+    [ "pico:3V3", "bb1:bp.25", "red", [ "v20.4", "h230.4", "v-172.8" ] ],
+    [ "pico:GND.8", "bb1:bn.25", "black", [ "v10.8", "h201.6", "v-144" ] ],
+    [ "bb1:bp.8", "bb1:10b.j", "red", [ "v0" ] ],
+    [ "bb1:12b.g", "pico:GP9", "red", [ "h-48", "v134.4" ] ],
+    [ "bb1:9b.j", "pico:GP7", "red", [ "v0" ] ],
+    [ "bb2:bp.8", "bb2:10b.j", "red", [ "v0" ] ],
+    [ "bb1:bp.1", "bb2:bp.25", "red", [ "v0" ] ],
+    [ "bb1:bn.1", "bb2:bn.25", "black", [ "v0" ] ],
+    [ "pico:GP18", "bb2:5b.j", "blue", [ "v20.4", "h-326.4" ] ],
+    [ "pico:GP19", "bb2:4b.j", "violet", [ "v30", "h-374.4", "v-19.2" ] ],
+    [ "pico:GP20", "bb2:3b.j", "gray", [ "v39.6", "h-67.2" ] ],
+    [ "pico:GP21", "bb2:2b.j", "white", [ "v49.2", "h-28.8" ] ],
+    [ "bb2:12b.g", "pico:GP14", "blue", [ "v0", "h211.2" ] ],
+    [ "oled1:GND", "bb1:bn.23", "black", [ "v0" ] ],
+    [ "oled1:VCC", "bb1:bp.24", "red", [ "v0" ] ],
+    [ "oled1:SCL", "pico:GP1", "orange", [ "v-182.4", "h-124.5" ] ],
+    [ "oled1:SDA", "pico:GP0", "gray", [ "v0" ] ],
+    [ "stepper1:A-", "bb1:2b.f", "", [ "$bb" ] ],
+    [ "stepper1:A+", "bb1:3b.f", "", [ "$bb" ] ],
+    [ "stepper1:B+", "bb1:4b.f", "", [ "$bb" ] ],
+    [ "stepper1:B-", "bb1:5b.f", "", [ "$bb" ] ],
+    [ "btn1:1.l", "bb1:12t.e", "", [ "$bb" ] ],
+    [ "btn1:2.l", "bb1:10t.e", "", [ "$bb" ] ],
+    [ "btn1:1.r", "bb1:12b.f", "", [ "$bb" ] ],
+    [ "btn1:2.r", "bb1:10b.f", "", [ "$bb" ] ],
+    [ "r1:1", "bb1:12b.h", "", [ "$bb" ] ],
+    [ "r1:2", "bb1:bn.10", "", [ "$bb" ] ],
+    [ "led1:A", "bb1:9b.f", "", [ "$bb" ] ],
+    [ "led1:C", "bb1:8b.f", "", [ "$bb" ] ],
+    [ "r2:1", "bb1:8b.h", "", [ "$bb" ] ],
+    [ "r2:2", "bb1:bn.6", "", [ "$bb" ] ],
+    [ "stepper2:A-", "bb2:2b.f", "", [ "$bb" ] ],
+    [ "stepper2:A+", "bb2:3b.f", "", [ "$bb" ] ],
+    [ "stepper2:B+", "bb2:4b.f", "", [ "$bb" ] ],
+    [ "stepper2:B-", "bb2:5b.f", "", [ "$bb" ] ],
+    [ "btn2:1.l", "bb2:12t.e", "", [ "$bb" ] ],
+    [ "btn2:2.l", "bb2:10t.e", "", [ "$bb" ] ],
+    [ "btn2:1.r", "bb2:12b.f", "", [ "$bb" ] ],
+    [ "btn2:2.r", "bb2:10b.f", "", [ "$bb" ] ],
+    [ "r3:1", "bb2:12b.h", "", [ "$bb" ] ],
+    [ "r3:2", "bb2:bn.10", "", [ "$bb" ] ],
+    [ "led2:A", "bb2:9b.f", "", [ "$bb" ] ],
+    [ "led2:C", "bb2:8b.f", "", [ "$bb" ] ],
+    [ "r4:1", "bb2:8b.h", "", [ "$bb" ] ],
+    [ "r4:2", "bb2:bn.6", "", [ "$bb" ] ],
+    [ "bb2:9b.i", "pico:GP26", "blue", [ "v0" ] ]
+  ],
+  "dependencies": {}
+}
